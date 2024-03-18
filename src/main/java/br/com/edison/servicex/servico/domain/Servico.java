@@ -2,6 +2,7 @@ package br.com.edison.servicex.servico.domain;
 
 import br.com.edison.servicex.categoria.domain.Categoria;
 import br.com.edison.servicex.ordemservico.domain.OrdemServico;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Servico {
     @JoinColumn(name = "idCategoria")
     private Categoria categoria;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL)
     private List<OrdemServico> ordemServicos;
 }
