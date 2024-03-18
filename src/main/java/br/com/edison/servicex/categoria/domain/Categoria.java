@@ -18,6 +18,7 @@ public class Categoria {
 
     @Column(name = "NOME_CATEGORIA")
     private String nomeCategoria;
+
     @JsonIgnore
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<Servico> servicos;
