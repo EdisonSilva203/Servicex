@@ -1,5 +1,7 @@
 package br.com.edison.servicex.usuario.domain;
 
+import br.com.edison.servicex.enums.Perfil;
+import br.com.edison.servicex.enums.StatusPagamento;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -31,5 +33,6 @@ public class Usuario {
     private String senha;
 
     @Column(name = "PERFIL")
-    private Integer perfil;
+    @Enumerated(EnumType.STRING)
+    private Perfil perfil;
     }
