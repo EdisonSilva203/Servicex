@@ -1,12 +1,13 @@
 package br.com.edison.servicex.ordemservico.domain;
 
-
-
 import br.com.edison.servicex.servico.domain.Servico;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "ORDEM_SERVIÇO")
@@ -22,7 +23,7 @@ public class OrdemServico {
     @Column(name = "DATA_SOLICITAÇÃO")
     private Date dataSolicitacao;
 
-    @ManyToOne
-    @JoinColumn(name = "idServico")
-    private Servico servico;
+    @JsonIgnore
+    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.ALL)
+    private List<Servico> servicos;
 }

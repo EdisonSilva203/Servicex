@@ -7,6 +7,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "PAGAMENTO")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "TIPO")
 public class Pagamento {
 
     @Id
