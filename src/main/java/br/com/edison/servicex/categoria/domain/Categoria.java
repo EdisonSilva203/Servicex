@@ -24,17 +24,5 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<Servico> servicos;
 
-    @ManyToOne
-    @JoinColumn(name = "idServico")
-    private Servico servico;
 
-    public Categoria() {
-
-    }
-
-    public Categoria(Integer idCategoria, String nomeCategoria, List<Servico> servicos) {
-        this.idCategoria = idCategoria;
-        this.nomeCategoria = nomeCategoria;
-        this.servicos = servicos;
-    }
 }

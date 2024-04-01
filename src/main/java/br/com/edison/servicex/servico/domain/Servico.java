@@ -7,11 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name ="SERVICO")
 public class Servico {
@@ -34,7 +30,4 @@ public class Servico {
     @JoinColumn(name = "idOrdemServico")
     private OrdemServico ordemServico;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL)
-    private List<Categoria> categorias;
 }
